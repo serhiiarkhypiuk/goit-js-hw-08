@@ -17,8 +17,8 @@ const fillForm = () => {
         return
     }
 
-    const { elements } = form;
-    const keysFormData = Object.keys(formData);
+    const { elements } = form
+    const keysFormData = Object.keys(formData)
 
     keysFormData.forEach(key => {
         elements[key].value = formData[key]
@@ -49,6 +49,8 @@ const onSubmit = (submit) => {
     console.log(formData)
     setLocaleStorage("feedback-form-state", formData)
     submit.target.reset()
+    localStorage.removeItem("feedback-form-state")
+    formData = {}
 }
 
 form.addEventListener('input', throttle(updateStorage, 500))
